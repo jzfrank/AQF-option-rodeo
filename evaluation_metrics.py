@@ -39,7 +39,7 @@ def CW_test(true_pred_return):
                 np.power(group["true_return"], 2)
                 - np.power(group["true_return"] - group["pred_return"], 2)
             )))
-    return mean(c) / std(c)
+    return np.mean(c) / np.std(c)
 
 
 def DM_test(true_pred_1vs2_return):
@@ -63,4 +63,4 @@ def DM_test(true_pred_1vs2_return):
                 np.power(group["true_return"] - group["pred_return1"], 2)
                 - np.power(group["true_return"] - group["pred_return2"], 2)
             )))
-    return mean(d) / std(d) 
+    return np.mean(d) / np.std(d) 
