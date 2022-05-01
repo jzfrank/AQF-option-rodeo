@@ -32,6 +32,7 @@ def train_validation_test_split(option_with_feature, year):
 if __name__ == "__main__":
     # load data 
     DATAROOT = "/cluster/scratch/zhajin/data/"  # for running in euler server 
+    option_with_feature = pd.read_csv(os.path.join(DATAROOT, "option_with_nonsparse_features.csv"))
     option_with_feature = option_with_feature[~option_with_feature.option_ret.isna()]
     option_with_feature["date_x"] = option_with_feature.date_x.apply(
         lambda x: dt.datetime.strptime(x.split()[0], "%Y-%m-%d")).copy()
