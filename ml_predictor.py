@@ -2,14 +2,16 @@ import numpy as np
 import datetime as dt
 import pandas as pd 
 import os
-from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
 import numpy as np
+import time 
+
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn import linear_model
 import matplotlib.pyplot as plt
+from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
 
 
 def train_validation_test_split(option_with_feature, year):
@@ -35,6 +37,7 @@ def train_validation_test_split(option_with_feature, year):
 
 
 if __name__ == "__main__":
+	start = time.time()
     # load data 
     DATAROOT = "/cluster/scratch/zhajin/data/"  # for running in euler server 
     option_with_feature = pd.read_csv(os.path.join(DATAROOT, "option_with_nonsparse_features.csv"))
@@ -42,7 +45,8 @@ if __name__ == "__main__":
     option_with_feature["date_x"] = option_with_feature.date_x.apply(
         lambda x: dt.datetime.strptime(x.split()[0], "%Y-%m-%d")).copy()
     option_with_feature["cp_flag_encoded"] = option_with_feature["cp_flag"].apply(lambda x: {"P": 0, "C": 1}[x])
-    print("finished loading data")
+    print(f"finished loading data, used {time.time() - start} seconds")
+    print("------------------------------------------------------")
     # suppress the warning of 
     #   "A value is trying to be set on a copy of a slice from a DataFrame. 
     #   Try using .loc[row_indexer,col_indexer] = value instead"
@@ -53,6 +57,7 @@ if __name__ == "__main__":
     R_squared_OSXS_s = []
 
     for year in range(1996, 2020 - 7):
+    	start = time.time()
         print(f"iteration, year: {year}, running regression...")
         training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
 
@@ -102,10 +107,12 @@ if __name__ == "__main__":
         r2_scores.append(r2_score(y_test, y_pred))
         R_squared_OSXS_s.append(R_squared_OSXS(y_test, y_pred))
         print(year, mean_squared_errors[-1], r2_scores[-1], R_squared_OSXS_s[-1])
-
-        pd.DataFrame({
-            "start_year": list(range(1996, 2020 - 7)), 
-            "mean_squared_error": mean_squared_errors,
-            "r2_score": r2_scores,
-            "R_squared_OSXS": R_squared_OSXS_s
-        }).to_csv("Lasso_alpha0.1.csv")
+        print(f"finished one iteration, used {time.time() - start} seconds")
+        print("------------------------------------------------------")
+    
+    pd.DataFrame({
+        "start_year": list(range(1996, 2020 - 7)), 
+        "mean_squared_error": mean_squared_errors,
+        "r2_score": r2_scores,
+        "R_squared_OSXS": R_squared_OSXS_s
+    }).to_csv("Lasso_alpha0.1.csv")
