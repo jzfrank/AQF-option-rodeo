@@ -37,9 +37,10 @@ def train_validation_test_split(option_with_feature, year):
 
 
 if __name__ == "__main__":
-	start = time.time()
+    start = time.time()
     # load data 
-    DATAROOT = "/cluster/scratch/zhajin/data/"  # for running in euler server 
+    # for running in euler server 
+    DATAROOT = "/cluster/scratch/zhajin/data/"
     option_with_feature = pd.read_csv(os.path.join(DATAROOT, "option_with_nonsparse_features.csv"))
     option_with_feature = option_with_feature[~option_with_feature.option_ret.isna()]
     option_with_feature["date_x"] = option_with_feature.date_x.apply(
@@ -57,7 +58,7 @@ if __name__ == "__main__":
     R_squared_OSXS_s = []
 
     for year in range(1996, 2020 - 7):
-    	start = time.time()
+        start = time.time()
         print(f"iteration, year: {year}, running regression...")
         training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
 
@@ -109,7 +110,7 @@ if __name__ == "__main__":
         print(year, mean_squared_errors[-1], r2_scores[-1], R_squared_OSXS_s[-1])
         print(f"finished one iteration, used {time.time() - start} seconds")
         print("------------------------------------------------------")
-    
+
     pd.DataFrame({
         "start_year": list(range(1996, 2020 - 7)), 
         "mean_squared_error": mean_squared_errors,
