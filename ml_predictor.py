@@ -5,6 +5,11 @@ import os
 from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
 import numpy as np
 from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+from sklearn import linear_model
+import matplotlib.pyplot as plt
 
 
 def train_validation_test_split(option_with_feature, year):
@@ -37,7 +42,7 @@ if __name__ == "__main__":
     option_with_feature["date_x"] = option_with_feature.date_x.apply(
         lambda x: dt.datetime.strptime(x.split()[0], "%Y-%m-%d")).copy()
     option_with_feature["cp_flag_encoded"] = option_with_feature["cp_flag"].apply(lambda x: {"P": 0, "C": 1}[x])
-
+    print("finished loading data")
     # suppress the warning of 
     #   "A value is trying to be set on a copy of a slice from a DataFrame. 
     #   Try using .loc[row_indexer,col_indexer] = value instead"
@@ -48,6 +53,7 @@ if __name__ == "__main__":
     R_squared_OSXS_s = []
 
     for year in range(1996, 2020 - 7):
+        print(f"iteration, year: {year}, running regression...")
         training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
 
         used_characteristics = ['volume', 'ReturnSkew', 'MaxRet', 'delta', 'PriceDelaySlope', 'strike_price', 
