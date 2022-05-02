@@ -53,7 +53,7 @@ if __name__ == "__main__":
     #   Try using .loc[row_indexer,col_indexer] = value instead"
     pd.options.mode.chained_assignment = None 
 
-    def run_regression(reg, reg_name):
+    def run_regression(reg, file_name):
         mean_squared_errors = []
         r2_scores = []
         R_squared_OSXS_s = []
@@ -117,8 +117,16 @@ if __name__ == "__main__":
             "mean_squared_error": mean_squared_errors,
             "r2_score": r2_scores,
             "R_squared_OSXS": R_squared_OSXS_s
-        }).to_csv(f"results/{reg_name}.csv")
+        }).to_csv(f"{file_name}.csv")
 
+    # ----- Linear models ------
+    # Lasso
     best_alpha = 0.1  # empirically result from validation
     reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
-    run_regression(reg, "Ridge_alpha0.1")
+    run_regression(reg, "results/Lasso_alpha0.1")
+    # Ridge
+    best_alpha = 0.1  # empirically result from validation
+    reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
+    run_regression(reg, "results/Ridge_alpha0.1")
+
+    # ----- Nonlinear models -----
