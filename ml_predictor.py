@@ -162,18 +162,18 @@ if __name__ == "__main__":
             "R_squared_OSXS": R_squared_OSXS_s
         }).to_csv(f"{file_name}.csv")
 
-    # ----- Linear models ------
-    # Lasso
-    best_alpha = 0.1  # empirically result from validation
-    reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
-    run_regression(reg, "results/Lasso_alpha0.1")
-    # Ridge
-    best_alpha = 0.1  # empirically result from validation
-    reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
-    run_regression(reg, "results/Ridge_alpha0.1")
-    # Elastic
-    elastic_reg = ElasticNet(alpha=0.1)
-    run_regression(reg, "results/Elastic_alpha0.1")
+    # # ----- Linear models ------
+    # # Lasso
+    # best_alpha = 0.1  # empirically result from validation
+    # reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
+    # run_regression(reg, "results/Lasso_alpha0.1")
+    # # Ridge
+    # best_alpha = 0.1  # empirically result from validation
+    # reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
+    # run_regression(reg, "results/Ridge_alpha0.1")
+    # # Elastic
+    # elastic_reg = ElasticNet(alpha=0.1)
+    # run_regression(reg, "results/Elastic_alpha0.1")
 
     # ----- Nonlinear models ----- 
     # GBR
