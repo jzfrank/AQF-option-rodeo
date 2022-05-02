@@ -11,7 +11,13 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn import linear_model
 from sklearn.linear_model import ElasticNet
+from sklearn.metrics import mean_squared_error
+from sklearn.datasets import make_friedman1
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.datasets import make_regression
 import matplotlib.pyplot as plt
+
 from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
 
 
