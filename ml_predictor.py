@@ -54,6 +54,7 @@ if __name__ == "__main__":
     pd.options.mode.chained_assignment = None 
 
     def run_regression(reg, file_name):
+        print(f"for {file_name}\n {reg.get_params()}")
         mean_squared_errors = []
         r2_scores = []
         R_squared_OSXS_s = []
@@ -129,4 +130,17 @@ if __name__ == "__main__":
     reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
     run_regression(reg, "results/Ridge_alpha0.1")
 
-    # ----- Nonlinear models -----
+    # ----- Nonlinear models ----- 
+    # GBR
+    reg = GradientBoostingRegressor(
+        n_estimators=100, random_state=0,
+        loss='huber',
+        verbose=1
+    )
+    run_regression(reg, "results/GBR_n100")
+    # RF
+    reg = RandomForestRegressor(
+        n_estimators=100,
+        max_depth=3, random_state=0, 
+        verbose=1)
+    run_regression(reg, "results/RF_n100")
