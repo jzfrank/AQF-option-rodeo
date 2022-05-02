@@ -10,6 +10,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn import linear_model
+from sklearn.linear_model import ElasticNet
 import matplotlib.pyplot as plt
 from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
 
@@ -34,6 +35,33 @@ def train_validation_test_split(option_with_feature, year):
     ]
 
     return training_data, validation_data, test_data 
+
+
+def backtesting(test_data, regressor):
+    dates = sorted(list(set(test_data.date_x)))
+    gain_from_hedges = []
+    for i in range(len(dates)):
+        df = test_data[test_data.date_x == dates[i]]
+        df = pd.DataFrame(
+            {
+                "secid": df.secid,
+                "adj_spot": df.adj_spot,
+                "strike_price": df.strike_price,
+                "delta": df.delta,
+                "mid_price": df.mid_price,
+                "option_ret_real": df.option_ret,
+                "option_ret_pred": regressor.predict(df[used_characteristics])
+            }
+        )
+        df["hedge_cost"] = df["mid_price"] - df["adj_spot"] * df["delta"]
+        df["hedge_gain"] = abs(df["hedge_cost"]) * df["option_ret_real"] 
+        long_portfolio = df.sort_values(by="option_ret_pred").head(10)
+        short_portfolio = df.sort_values(by="option_ret_pred").tail(10)
+        short_portfolio.hedge_cost = - short_portfolio.hedge_cost
+        gain_from_hedge = (sum(long_portfolio["hedge_cost"]) + sum(short_portfolio["hedge_cost"]) 
+                           + sum(long_portfolio["hedge_gain"]) + sum(short_portfolio["hedge_gain"]))
+        gain_from_hedges.append(gain_from_hedge)
+    return dates, gain_from_hedges
 
 
 if __name__ == "__main__":
@@ -110,6 +138,12 @@ if __name__ == "__main__":
             r2_scores.append(r2_score(y_test, y_pred))
             R_squared_OSXS_s.append(R_squared_OSXS(y_test, y_pred))
             print(year, mean_squared_errors[-1], r2_scores[-1], R_squared_OSXS_s[-1])
+
+            dates, gain_from_hedges = backtesting(test_data, reg)
+            pd.DataFrame({
+                "dates": dates,
+                "gain_from_hedges": gain_from_hedges
+            }).to_csv(f"{file_name}_backtesting_{year}.csv")
             print(f"finished one iteration, used {time.time() - start} seconds")
             print("------------------------------------------------------")
 
@@ -129,6 +163,9 @@ if __name__ == "__main__":
     best_alpha = 0.1  # empirically result from validation
     reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
     run_regression(reg, "results/Ridge_alpha0.1")
+    # Elastic
+    elastic_reg = ElasticNet(alpha=0.1)
+    run_regression(reg, "results/Elastic_alpha0.1")
 
     # ----- Nonlinear models ----- 
     # GBR
