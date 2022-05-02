@@ -15,6 +15,14 @@ import matplotlib.pyplot as plt
 from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
 
 
+used_characteristics = ['volume', 'ReturnSkew', 'MaxRet', 'delta', 'PriceDelaySlope', 'strike_price', 
+                        'IdioVol3F', 'ReturnSkew3F', 'ir_rate', 'mid_price', 'forwardprice', 
+                        'zerotradeAlt1', 'theta', 'cfadj', 'zerotrade', 'best_bid', 'spotprice', 'VolMkt', 
+                        'IdioRisk', 'days_to_exp', 'PriceDelayTstat', 'High52', 'Coskewness', 'BidAskSpread', 
+                                    'Beta', 'days_no_trading', 'open_interest', 'impl_volatility', 'PriceDelayRsq', 'IdioVolAHT', 
+                                    'adj_spot', 'vega', 'gamma', 'best_offer', 'DolVol', 'cp_flag_encoded']
+
+
 def train_validation_test_split(option_with_feature, year):
     begin_date = dt.datetime.strptime(f"{year}-01-01", "%Y-%m-%d")
     end_date = dt.datetime.strptime(f"{year+4}-12-31", "%Y-%m-%d")
@@ -92,13 +100,6 @@ if __name__ == "__main__":
             print(f"iteration, year: {year}, running regression...")
             training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
 
-            used_characteristics = ['volume', 'ReturnSkew', 'MaxRet', 'delta', 'PriceDelaySlope', 'strike_price', 
-                                    'IdioVol3F', 'ReturnSkew3F', 'ir_rate', 'mid_price', 'forwardprice', 
-                                    'zerotradeAlt1', 'theta', 'cfadj', 'zerotrade', 'best_bid', 'spotprice', 'VolMkt', 
-                                    'IdioRisk', 'days_to_exp', 'PriceDelayTstat', 'High52', 'Coskewness', 'BidAskSpread', 
-                                    'Beta', 'days_no_trading', 'open_interest', 'impl_volatility', 'PriceDelayRsq', 'IdioVolAHT', 
-                                    'adj_spot', 'vega', 'gamma', 'best_offer', 'DolVol', 'cp_flag_encoded']
-
             imp = SimpleImputer(missing_values=np.nan, strategy='mean')
             imp.fit(training_data[used_characteristics])
             training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
@@ -144,6 +145,7 @@ if __name__ == "__main__":
                 "dates": dates,
                 "gain_from_hedges": gain_from_hedges
             }).to_csv(f"{file_name}_backtesting_{year}.csv")
+
             print(f"finished one iteration, used {time.time() - start} seconds")
             print("------------------------------------------------------")
 
