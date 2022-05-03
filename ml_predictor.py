@@ -95,13 +95,13 @@ if __name__ == "__main__":
     #   Try using .loc[row_indexer,col_indexer] = value instead"
     pd.options.mode.chained_assignment = None 
 
-    def run_regression(reg, file_name):
+    def run_regression(reg, file_name, start_year=1996, end_year=2012):
         print(f"for {file_name}\n {reg.get_params()}")
         mean_squared_errors = []
         r2_scores = []
         R_squared_OSXS_s = []
 
-        for year in range(1996, 2020 - 7):
+        for year in range(start_year, end_year + 1):
             start = time.time()
             print(f"iteration, year: {year}, running regression...")
             training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
@@ -176,16 +176,16 @@ if __name__ == "__main__":
     # run_regression(reg, "results/Elastic_alpha0.1")
 
     # ----- Nonlinear models ----- 
-    # GBR
-    reg = GradientBoostingRegressor(
-        n_estimators=100, random_state=0,
-        loss='huber',
-        verbose=1
-    )
-    run_regression(reg, "results/GBR_n100")
+    # # GBR
+    # reg = GradientBoostingRegressor(
+    #     n_estimators=100, random_state=0,
+    #     loss='huber',
+    #     verbose=1
+    # )
+    # run_regression(reg, "results/GBR_n100")
     # RF
     reg = RandomForestRegressor(
         n_estimators=100,
         max_depth=3, random_state=0, 
         verbose=1)
-    run_regression(reg, "results/RF_n100")
+    run_regression(reg, "results/RF_n100", 2009, 2012)
