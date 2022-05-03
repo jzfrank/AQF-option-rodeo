@@ -1,118 +1,63 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
-# from consts import DATAROOT
+# %%
+from consts import DATAROOT
 import pandas as pd
 import numpy as np
 from pathlib import Path
 import datetime
 
-
-# In[3]:
-
-
+# %%
 # Reading data
 
-
-# In[11]:
-
-
-DATAROOT = "./data"
-
-
-# In[12]:
-
-
-Path(DATAROOT, "stock_daily.csv")
-
-
-# In[13]:
-
-
+# %%
 daily_stock = pd.read_csv(Path(DATAROOT, "stock_daily.csv"))
 
+# %%
+monthly_stock_wide = pd.read_csv(Path(DATAROOT, 'signed_predictors_dl_wide.csv'))
+monthly_stock_wide.head()
 
-# In[14]:
-
-
-# monthly_stock_wide = pd.read_csv(Path(DATAROOT, 'signed_predictors_dl_wide.csv'))
-# monthly_stock_wide.head()
-
-
-# In[15]:
-
-
+# %%
 daily_stock.columns = (col.lower() for col in daily_stock.columns)
 daily_stock['date'] = pd.to_datetime(daily_stock.date, format="%Y%m%d")
 daily_stock.head()
 
-
-# In[16]:
-
-
+# %%
 reference = pd.read_csv(Path(DATAROOT, "CRSP_daily_stock_reference"))
 reference['Variable Name'] = reference['Variable Name'].str.slice(0,-1)
 reference = reference[reference['Variable Name'].isin(daily_stock.columns)]
 reference['description_url'] = "https://wrds-www.wharton.upenn.edu/data-dictionary/form_metadata/crsp_a_stock_dsf_identifyinginformation/" + reference['Variable Name']
 reference.head(2)
 
-
-# In[17]:
-
-
+# %%
 sp500_op_ret = pd.read_csv(Path(DATAROOT, "sp500_op_ret.csv"))
 sp500_op_ret['date'] = pd.to_datetime(sp500_op_ret['date'])
 sp500_op_ret['exdate'] = pd.to_datetime(sp500_op_ret['exdate'])
 sp500_op_ret.head()
 
-
-# In[18]:
-
-
+# %%
 mapping_table = pd.read_csv(Path(DATAROOT, "mapping_table.csv"))
 mapping_table.head(2)
 mapping_table['sdate'] = pd.to_datetime(mapping_table.sdate)
 mapping_table['edate'] = pd.to_datetime(mapping_table.edate)
 
-
+# %% [markdown]
 # # Add permno to monthly data
 
-# In[19]:
-
-
+# %%
 (mapping_table.groupby('secid').count()[mapping_table.groupby('secid').permno.count()!=1])
 
-
-# In[20]:
-
-
+# %%
 (mapping_table.groupby('permno').count()[mapping_table.groupby('permno').secid.count()!=1])
 
-
-# In[21]:
-
-
+# %%
 mapping_table[mapping_table.permno==10113]
 
-
-# In[22]:
-
-
+# %%
 mapping_table[mapping_table.secid==5007]
 
-
-# In[ ]:
-
+# %%
 
 
-
-
-# In[23]:
-
-
+# %%
 def dates_overlaps(group):
     if group.shape[0]==1:
         return False
@@ -122,31 +67,20 @@ def dates_overlaps(group):
 
 mapping_table.groupby('secid').apply(dates_overlaps)
 
-
-# In[24]:
-
-
+# %%
 mapping_table.groupby('secid').apply(dates_overlaps)[mapping_table.groupby('secid').apply(dates_overlaps)]
 
-
-# In[25]:
-
-
+# %%
 mapping_table[mapping_table.secid==5505]
 
-
+# %% [markdown]
 # ## Summary on mapping table: if we eliminate the secids 5505 and 9534, each (secid, sdate, edate) triplet gives uniquely a permno, so we shall use this to link the data
 
-# In[26]:
-
-
+# %%
 sp500_op_ret = sp500_op_ret[~sp500_op_ret.secid.isin([5505, 9534])]
 sp500_op_ret = sp500_op_ret[sp500_op_ret.date<=mapping_table.edate.max()]
 
-
-# In[27]:
-
-
+# %%
 def add_permno(group):
     secid = group.secid.iloc[0]
     mapping_group = MAPPING_GROUPED.get_group(secid)
@@ -169,200 +103,177 @@ grouped = sp500_op_ret.groupby('secid')
 sp500_op_ret_w_permno = grouped.apply(add_permno).dropna(subset=['permno'])
 sp500_op_ret_w_permno
 
-
-# In[28]:
-
-
+# %%
 sp500_op_ret_w_permno[sp500_op_ret_w_permno.option_ret.isna()]
 
-
+# %% [markdown]
 # # Grouping daily data with month
 
+# %% [markdown]
 # First, we check whether all monthly data are recorded on the last trading date of the natural month.
 
-# In[30]:
-
-
+# %%
 dates = pd.Series(daily_stock.date.dt.strftime('%Y-%m-%d').unique())
 end_of_trading_month = dates.groupby(dates.str.slice(0,7)).max().values
 
-
+# %% [markdown]
 # There is one wierd date.
 
-# In[32]:
-
-
+# %%
 sp500_op_ret_w_permno[~sp500_op_ret_w_permno.date.dt.strftime('%Y-%m-%d').isin(end_of_trading_month)].date.unique()
 
-
-# In[33]:
-
-
+# %%
 daily_stock[daily_stock.date.dt.strftime('%Y-%m-%d')=='2017-09-30']
 
-
+# %% [markdown]
 # However, we checked that 2017-09-30 is Saturday, and since there is only one record in this regard, we simply drop this record.
 
-# In[34]:
-
-
+# %%
 daily_stock = daily_stock[~(daily_stock.date.dt.strftime('%Y-%m-%d')=='2017-09-30')]
 
-
+# %% [markdown]
 # Now everything's cool.
 
-# In[35]:
-
-
+# %%
 dates = pd.Series(daily_stock.date.dt.strftime('%Y-%m-%d').unique())
 end_of_trading_month = dates.groupby(dates.str.slice(0,7)).max().values
 sp500_op_ret_w_permno.date.dt.strftime('%Y-%m-%d').isin(end_of_trading_month).all()
 
-
-# In[ ]:
-
-
+# %%
 end_of_mon_dict = {date[0:7]:date for date in end_of_trading_month}
 
-
-# In[ ]:
-
-
+# %%
 def last_date(group):
     return  pd.Series([group.date.max()]*group.shape[0], index=group.index)
 daily_stock['month'] = daily_stock.groupby(daily_stock.date.dt.strftime('%Y-%m')).apply(last_date).droplevel(0)
 daily_stock.sort_values('date',inplace=True)
 
-
-# In[ ]:
-
-
+# %%
 daily_stock.head()
 
-
+# %% [markdown]
 # Now, when calculating the any monthly data, such as realized volatility, from daily data, we can simply do daily_stock.groupby(['permno', 'month']).apply(aggregation_func)
 
+# %% [markdown]
 # # Aggregating calculations
 
+# %% [markdown]
 # #### List of attributes to be calculated from the daily data
 #     1.Realized volatility of stock price
 #     2.Volume of stocks traded
 #     3.Dollar volume of stocks traded
 
-# In[ ]:
-
-
+# %%
 reference
 
-
-# In[ ]:
-
-
+# %%
 attributes = []
 
-
-# In[ ]:
-
-
+# %%
 daily_stock['dollar_volu'] = daily_stock['vol'] * daily_stock['prc']
 
-
-# In[ ]:
-
-
+# %%
 grouped = daily_stock.groupby(['permno', 'month'])
 
-
-# In[ ]:
-
-
+# %%
 rvol = (grouped['prc'].std()*np.sqrt(12)).rename('rvol')
 attributes += [rvol]
 
-
-# In[ ]:
-
-
+# %%
 share_volume = grouped['vol'].sum().rename('share_volume')
 attributes += [share_volume]
 
-
-# In[ ]:
-
-
+# %%
 dollar_volume = grouped['dollar_volu'].sum().rename('dollar_volume')
 attributes += [dollar_volume]
 
-
-# In[ ]:
-
-
+# %%
 attributes_from_daily_stock = pd.DataFrame(attributes).T.reset_index()
 attributes_from_daily_stock
 
-
-# In[ ]:
-
-
+# %%
 sp500_op_ret_w_permno = pd.merge(sp500_op_ret_w_permno, attributes_from_daily_stock, left_on=['permno', 'date'], right_on=['permno', 'month'], how='inner')
 
-
+# %% [markdown]
 # # Revisit Daily option data
 # From most of the characteristics in Bucket level, we need some volatility data on the options, so we dived back into the daily option data to hopefully make it possible to calculate more things.
 # 
 # But failed...
 
-# In[ ]:
-
-
+# %%
 # daily_option = pd.read_csv(Path(DATAROOT, 'daily_option.csv'))
 # # reading this takes \\ sadly forever... 
 
-
-# In[ ]:
-
+# %%
 
 
+# %%
 
 
-# In[ ]:
+# %%
 
 
-
-
-
+# %% [markdown]
 # # Calculating Characteristics
 
+# %% [markdown]
 # ## Preliminary Work
 # We first add some preliminary columns to the dataframe
 # 
 # Most of the works here are contributed by Natasha
 
-# In[ ]:
-
-
+# %%
 sp500_op_ret_w_permno["yrs_to_exp"]=sp500_op_ret_w_permno["days_to_exp"]/250
+sp500_op_ret_w_permno["moneyness"] = sp500_op_ret_w_permno['strike_price'] / sp500_op_ret_w_permno['adj_spot']
 
 
+# %%
+months = sp500_op_ret_w_permno['date'].sort_values(ascending=True).unique()
+months
+int_months = [int(month) for month in months]# np.searchsorted works wierdly on dt objects 
+int_months
+
+# %%
+# shift option return
+global I 
+I = 0
+global L 
+L = len(sp500_op_ret_w_permno.optionid.unique())
+# grouped = sp500_op_ret_w_permno.sort_values('date')[['optionid', 'date', 'option_ret']].groupby('optionid')
+grouped = sp500_op_ret_w_permno.sort_values('date').groupby('optionid')
+def get_all_months(group):
+    s_month, e_month = np.datetime64(group.date.iloc[0]), np.datetime64(group.date.iloc[-1])
+    return months[(months >= s_month) & (months <= e_month)]
+    # return months[np.searchsorted(months, s_month): np.searchsorted(months, e_month)+1]
+def get_prev_option_ret(group):
+    signal_df = pd.DataFrame(get_all_months(group), columns=['date'])
+    filled_group = pd.merge(group, signal_df, on='date', how='outer')
+    filled_group['prev_option_ret'] = filled_group.option_ret.shift(1)
+    global I
+    I+=1
+    print(I/L, end="\r")
+    return filled_group.dropna(subset=['optionid'])
+
+
+# %%
+group = sp500_op_ret_w_permno.sort_values('date').groupby('optionid').get_group(10009003)
+
+# %%
+sp500_op_ret_w_permno = grouped.apply(get_prev_option_ret).reset_index(drop=False)
+
+# %% [markdown]
 # ## Stock level
 
+# %% [markdown]
 # Start to calculate the option characteristics
 
-# In[ ]:
-
-
+# %%
 sp500_op_ret_w_permno.columns
 
-
-# In[ ]:
-
-
+# %%
 stock_level_grouped = sp500_op_ret_w_permno.groupby(['secid', 'date'])
 
-
-# In[ ]:
-
-
+# %%
 # fucntions calculating characteristics in part 1
 
 #toi
@@ -415,7 +326,7 @@ def dvol(opt_data):
 #ailliq
 def ailliq(opt_data):
     sp500_op_ret=opt_data
-    ailliq_a=abs(sp500_op_ret['option_ret'])/sp500_op_ret['dvol_temp']
+    ailliq_a=abs(sp500_op_ret['prev_option_ret'])/sp500_op_ret['dvol_temp']
     sp500_op_ret["ailliq_a"] = ailliq_a                                      
     ailliq_a=sp500_op_ret.groupby(['secid','date'])["ailliq_a"].sum()                                          
     ailliq_b=sp500_op_ret.groupby(['secid','date'])["volume"].sum()
@@ -426,7 +337,7 @@ def ailliq(opt_data):
 #pilliq
 def pilliq(opt_data):
     sp500_op_ret=opt_data
-    pilliq_a=abs(sp500_op_ret['option_ret'])/sp500_op_ret['dvol_temp']/sp500_op_ret['mid_price']
+    pilliq_a=abs(sp500_op_ret['prev_option_ret'])/sp500_op_ret['dvol_temp']/sp500_op_ret['mid_price']
     sp500_op_ret["pilliq_a"] = pilliq_a                                      
     pilliq_a=sp500_op_ret.groupby(['secid','date'])["pilliq_a"].sum()                                          
     pilliq_b=sp500_op_ret.groupby(['secid','date'])["volume"].sum()
@@ -627,17 +538,13 @@ def ivslope(opt_data):
     
 
 
-# In[ ]:
-
-
+# %%
 funcs_by_Natasha = [toi, pcratio, vol, nopt, dvol, ailliq, pilliq,
                     pcpv, shrtfee, skewiv, atm_civpiv, atm_dcivpiv, 
                     dpiv, dciv, ntm_civpiv, ivd, ivslope]
 
 
-# In[ ]:
-
-
+# %%
 results_Natasha = {}
 problems = []
 for func in funcs_by_Natasha:
@@ -649,24 +556,17 @@ for func in funcs_by_Natasha:
         problems.append(func.__name__)
 
 
-# In[ ]:
-
-
+# %%
 for key in results_Natasha:
     results_Natasha[key].rename(key, inplace=True)
 
-
-# In[ ]:
-
-
+# %%
 STOCKLEVELCHARS = results_Natasha
 
-
+# %% [markdown]
 # 6. Stock vs. option volume (so)
 
-# In[ ]:
-
-
+# %%
 stock_level_grouped = sp500_op_ret_w_permno.groupby(['secid', 'date'])
 def get_so(group):
     agg_volu_option = group.volume.sum()
@@ -674,23 +574,19 @@ def get_so(group):
 so = stock_level_grouped.apply(get_so).rename('so', inplace=True)
 STOCKLEVELCHARS['so'] = so
 
-
+# %% [markdown]
 # 7. log of so
 
-# In[ ]:
-
-
+# %%
 def get_lso(so):
     return np.log(so)
 lso = get_lso(so).rename('lso', inplace=True)
 STOCKLEVELCHARS['lso'] = lso
 
-
+# %% [markdown]
 # 8. dso
 
-# In[ ]:
-
-
+# %%
 stock_level_grouped = sp500_op_ret_w_permno.groupby(['secid', 'date'])
 def get_dso(group):
     agg_volu_option = (group.volume*group.mid_price).sum()
@@ -698,23 +594,19 @@ def get_dso(group):
 dso = stock_level_grouped.apply(get_dso).rename('dso', inplace=True)
 STOCKLEVELCHARS['dso'] = dso
 
-
+# %% [markdown]
 # 9. ldso
 
-# In[ ]:
-
-
+# %%
 def get_ldso(dso):
     return np.log(dso)
 ldso = get_ldso(dso).rename('ldso', inplace=True)
 STOCKLEVELCHARS['ldso'] = ldso
 
-
+# %% [markdown]
 # 13. Proportional bid-ask spread (pba)
 
-# In[ ]:
-
-
+# %%
 stock_level_grouped = sp500_op_ret_w_permno.groupby(['secid', 'date'])
 def get_pba(group):
     return (group.volume * (group.best_offer - group.best_bid)/(0.5*(group.best_offer - group.best_bid))).sum() / group.volume.sum()
@@ -722,11 +614,10 @@ pba = stock_level_grouped.apply(get_pba).rename('pba', inplace=True)
 STOCKLEVELCHARS['pba'] = pba
 
 
+# %% [markdown]
 # 30. Weighted put-call spread (vs_level)
 
-# In[171]:
-
-
+# %%
 stock_level_grouped = sp500_op_ret_w_permno.groupby(['secid', 'date'])
 def get_vs_level(group):
     group = group.sort_values('cp_flag', ascending=True)
@@ -749,37 +640,28 @@ vs_level = stock_level_grouped.apply(get_vs_level).rename('vs_level')
 STOCKLEVELCHARS['vs_level'] = vs_level
 
 
+# %% [markdown]
 # 31. Change in Weighted put-call spread (vs_change)
 
-# In[185]:
-
-
+# %%
 def vs_change(vs_level):
     grouped_by_secid = vs_level.sort_index(level=1).groupby(level=0)
     return grouped_by_secid.apply(lambda x: x - x.shift(1))
 vs_change = vs_change(vs_level).rename('vs_change')
 STOCKLEVELCHARS['vs_change'] = vs_change
 
-
-# In[186]:
-
-
+# %%
 STOCKLEVELCHARS_df = pd.DataFrame(STOCKLEVELCHARS)
 
-
+# %% [markdown]
 # # Bucket level
 # 
 # What we can do here is indeed limited, since daily option data is unhandlable for us
 
-# In[192]:
-
-
+# %%
 BUCKETLEVELCHARS = {}
 
-
-# In[188]:
-
-
+# %%
 def tag_moneyness(row):
     if row.cp_flag == 'C':
         return 'OTM' if row.moneyness>1.1 else ('ITM' if row.moneyness<0.9 else 'ATM')
@@ -791,12 +673,10 @@ sp500_op_ret_w_permno['moneyness_class'] = sp500_op_ret_w_permno.apply(tag_money
 sp500_op_ret_w_permno['maturity_class'] = sp500_op_ret_w_permno['days_to_exp'].map(lambda n: 'L' if n>90 else 'S')
 sp500_op_ret_w_permno['bucket_class'] = sp500_op_ret_w_permno['moneyness_class'] + ',' + sp500_op_ret_w_permno['maturity_class']
 
-
+# %% [markdown]
 # 14. Open Interest vs. stock volume (oistock)
 
-# In[193]:
-
-
+# %%
 bucket_level_grouped = sp500_op_ret_w_permno.groupby(['secid', 'date', 'bucket_class'])
 def get_oistock(group):
     stock_volu = group['share_volume'].iloc[0]
@@ -804,58 +684,45 @@ def get_oistock(group):
 oistock = bucket_level_grouped.apply(get_oistock).rename('iostock')
 BUCKETLEVELCHARS['oistock'] = oistock
 
-
+# %% [markdown]
 # 15. Volume (bucket_vol)
 
-# In[194]:
-
-
+# %%
 bucket_vol = bucket_level_grouped['volume'].sum().rename('bucket_vol')
 BUCKETLEVELCHARS['bucket_vol'] = bucket_vol
 
-
+# %% [markdown]
 # 16. Dollor volume  (bucket_dvol)
 
-# In[195]:
-
-
+# %%
 bucket_dvol = bucket_level_grouped['dollar_volume'].sum().rename('bucket_dvol')
 BUCKETLEVELCHARS['bucket_dvol'] = bucket_dvol
 
-
+# %% [markdown]
 # 17. Relative Volume (bucket_vol_share)
 
-# In[203]:
-
-
+# %%
 stock_vol = STOCKLEVELCHARS['vol']
 bucket_vol_share = (bucket_vol / stock_vol).rename('bucket_vol_share')
 BUCKETLEVELCHARS['bucket_vol_share'] = bucket_vol_share
 
-
+# %% [markdown]
 # 18. Turnover (turnover)
 
-# In[205]:
-
-
+# %%
 turnover = (bucket_level_grouped['volume'].sum() / bucket_level_grouped['open_interest'].sum()).rename('turnover')
 BUCKETLEVELCHARS['turnover'] = turnover
 
-
-# In[207]:
-
-
+# %%
 BUCKETLEVELCHARS_df = pd.DataFrame(BUCKETLEVELCHARS)
 BUCKETLEVELCHARS_df
 
-
+# %% [markdown]
 # # Contract Level
 # 
 # By Natasha
 
-# In[214]:
-
-
+# %%
 #################
 #PART3 CHARACTERISTICS
 
@@ -882,9 +749,7 @@ sp500_op_ret_w_permno["volga"]=volga
 
 
 
-# In[216]:
-
-
+# %%
 sp500_op_ret_w_permno['expiration_month'] = np.where((sp500_op_ret_w_permno["days_to_exp"]<=21), 1, 0)
 sp500_op_ret_w_permno['ttm'] = sp500_op_ret_w_permno["yrs_to_exp"]
 sp500_op_ret_w_permno['iv'] = sp500_op_ret_w_permno['impl_volatility']
@@ -892,45 +757,44 @@ sp500_op_ret_w_permno['oi'] = sp500_op_ret_w_permno['open_interest']
 sp500_op_ret_w_permno['doi'] = sp500_op_ret_w_permno['oi'] * sp500_op_ret_w_permno['mid_price']
 sp500_op_ret_w_permno['mid'] = sp500_op_ret_w_permno['mid_price']
 
-
-# In[219]:
-
-
+# %%
 Level_3_chars = ['C', 'P', 'expiration_month', 'ttm', 'moneyness', 'iv', 'delta',
                  'gamma', 'theta', 'vega', 'volga', 'embedlev', 'oi', 'doi',
-                 'mid', 'optspread']
-intrinsics = ['secid', 'permno', 'date', 'exdate', 'optionid', 'bucket_class']
+                 'mid', 'optspread', 'prev_option_ret']
+intrinsics = ['secid', 'permno', 'date', 'exdate', 'optionid', 'bucket_class', 'option_ret']
 
-
-# In[220]:
-
-
+# %%
 CONTRACTLEVELCHARS_df = sp500_op_ret_w_permno[intrinsics + Level_3_chars]
 
-
+# %% [markdown]
 # # Merging results
 
-# In[223]:
-
-
+# %%
 df1 = pd.merge(CONTRACTLEVELCHARS_df, BUCKETLEVELCHARS_df.reset_index(), on=['secid', 'date', 'bucket_class'])
 result = pd.merge(df1, STOCKLEVELCHARS_df.reset_index(), on=['secid', 'date'])
 
-
-# In[224]:
-
-
+# %%
 result
 
-
-# In[227]:
-
-
+# %%
 result.to_csv(Path(DATAROOT, 'option_characteristics.csv'))
 
+# %%
+result['yyyymm'] = result.date.dt.strftime('%Y%m').astype(int)
 
-# In[ ]:
+# %%
+result['yyyymm'].iloc[1]
 
+# %%
+monthly_stock_wide.yyyymm.iloc[1]
 
+# %%
+all_chars_df = pd.merge(result, monthly_stock_wide, on=['permno', 'yyyymm'],how='inner')
+
+# %%
+all_chars_df.to_csv(Path(DATAROOT, 'all_characteristics.csv'))
+
+# %%
+all_chars_df
 
 

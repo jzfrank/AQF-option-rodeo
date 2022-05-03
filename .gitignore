@@ -134,3 +134,9 @@ dmypy.json
 
 # database
 *database
+
+# model
+*.pkl
+
+# archives
+archives/
