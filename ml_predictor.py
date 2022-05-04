@@ -5,6 +5,7 @@ import os
 import numpy as np
 import time 
 import joblib
+import datetime 
 
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
@@ -88,10 +89,18 @@ def run_regression_and_save(reg, model_name, option_with_feature, used_character
     Note: use joblib.dump(reg, filename) to save model
           use joblib.load(filename) to load model
     '''
+    print(datetime.datetime.strftime(datetime.datetime.now(), "%m-%d %H:%M"))
     start = time.time()
-    print(f"iteration, year: {year}, running regression...")s
+    print(f"iteration, year: {year}, running regression...")
     training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
+    non_useable_feature = set()
+    for df in [training_data, validation_data, test_data]:
+        for key, val in dict(df.isna().sum()).items():
+            if val == df.shape[0]:
+                print(key)
+                non_useable_feature.add(key)
 
+    used_characteristics = list(set(used_characteristics) - set(non_useable_feature))
     imp = SimpleImputer(missing_values=np.nan, strategy='mean')
     imp.fit(training_data[used_characteristics])
     training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
@@ -126,6 +135,8 @@ def run_regression_and_save(reg, model_name, option_with_feature, used_character
     reg.fit(X_train[used_characteristics], y_train)
     # save model
     joblib.dump(reg, f"models/{model_name}_{year}.pkl")
+    with open(file=f"models/{model_name}_{year}.txt") as f:
+        f.write(str(used_characteristics))
 
     # y_pred = reg.predict(X_test[used_characteristics])
     # mean_squared_errors.append(mean_squared_error(y_test, y_pred))
@@ -156,11 +167,10 @@ def run_regression_from_to(reg, model_name, option_with_feature, used_characteri
 if __name__ == "__main__":
     start = time.time()
     # load data 
-    option_with_feature = pd.read_csv(os.path.join(DATAROOT, "option_with_nonsparse_features.csv"))
+    option_with_feature = pd.read_csv(os.path.join(DATAROOT, "all_characteristics.csv"))
     option_with_feature = option_with_feature[~option_with_feature.option_ret.isna()]
-    option_with_feature["date"] = option_with_feature.date.apply(
-        lambda x: dt.datetime.strptime(x.split()[0], "%Y-%m-%d")).copy()
-    option_with_feature["cp_flag_encoded"] = option_with_feature["cp_flag"].apply(lambda x: {"P": 0, "C": 1}[x])
+    option_with_feature["date"] = pd.to_datetime(option_with_feature["date"])
+    option_with_feature.replace([np.inf, -np.inf], np.nan, inplace=True)
     print(f"finished loading data, used {time.time() - start} seconds")
     print("------------------------------------------------------")
     # suppress the warning of 
@@ -188,10 +198,10 @@ if __name__ == "__main__":
         loss='huber',
         verbose=1
     )
-    run_regression(reg, "results/GBR_n100")
+    run_regression(reg, "GBR_n100")
     # RF
     reg = RandomForestRegressor(
         n_estimators=100,
         max_depth=3, random_state=0, 
         verbose=1)
-    run_regression(reg, "results/RF_n100", 1996, 2012)
+    run_regression(reg, "RF_n100", 1996, 2012)
