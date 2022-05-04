@@ -1,0 +1,861 @@
+finished loading data, used 164.33800888061523 seconds
+------------------------------------------------------
+for Lasso_alpha0.1
+ {'alpha': 0.1, 'copy_X': True, 'fit_intercept': True, 'max_iter': 1000, 'normalize': 'deprecated', 'positive': False, 'precompute': False, 'random_state': 0, 'selection': 'cyclic', 'tol': 0.0001, 'warm_start': False}
+05-04 10:08
+iteration, year: 1996, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+RDcap
+finished one iteration, used 41.337461948394775 seconds
+------------------------------------------------------
+05-04 10:08
+iteration, year: 1997, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+finished one iteration, used 38.29314374923706 seconds
+------------------------------------------------------
+05-04 10:09
+iteration, year: 1998, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+RDcap
+finished one iteration, used 37.29286503791809 seconds
+------------------------------------------------------
+05-04 10:10
+iteration, year: 1999, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+finished one iteration, used 45.673141956329346 seconds
+------------------------------------------------------
+05-04 10:10
+iteration, year: 2000, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+finished one iteration, used 47.14698100090027 seconds
+------------------------------------------------------
+05-04 10:11
+iteration, year: 2001, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 39.16757822036743 seconds
+------------------------------------------------------
+05-04 10:12
+iteration, year: 2002, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 68.16633105278015 seconds
+------------------------------------------------------
+05-04 10:13
+iteration, year: 2003, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 61.19649386405945 seconds
+------------------------------------------------------
+05-04 10:14
+iteration, year: 2004, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+finished one iteration, used 70.73522615432739 seconds
+------------------------------------------------------
+05-04 10:15
+iteration, year: 2005, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 69.50666284561157 seconds
+------------------------------------------------------
+05-04 10:16
+iteration, year: 2006, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 80.64523720741272 seconds
+------------------------------------------------------
+05-04 10:18
+iteration, year: 2007, running regression...
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+finished one iteration, used 85.7961893081665 seconds
+------------------------------------------------------
+05-04 10:19
+iteration, year: 2008, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 105.1270740032196 seconds
+------------------------------------------------------
+05-04 10:21
+iteration, year: 2009, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 106.47414493560791 seconds
+------------------------------------------------------
+05-04 10:23
+iteration, year: 2010, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+finished one iteration, used 131.45612907409668 seconds
+------------------------------------------------------
+05-04 10:25
+iteration, year: 2011, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+finished one iteration, used 159.46877694129944 seconds
+------------------------------------------------------
+05-04 10:28
+iteration, year: 2012, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+retConglomerate
+finished one iteration, used 164.03818893432617 seconds
+------------------------------------------------------
+for Ridge_alpha0.1
+ {'alpha': 0.1, 'copy_X': True, 'fit_intercept': True, 'max_iter': None, 'normalize': 'deprecated', 'positive': False, 'random_state': 0, 'solver': 'auto', 'tol': 0.001}
+05-04 10:30
+iteration, year: 1996, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.33433e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 28.57926106452942 seconds
+------------------------------------------------------
+05-04 10:31
+iteration, year: 1997, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.55054e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 28.45456886291504 seconds
+------------------------------------------------------
+05-04 10:31
+iteration, year: 1998, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.57085e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 32.45661282539368 seconds
+------------------------------------------------------
+05-04 10:32
+iteration, year: 1999, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.65088e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 34.73616886138916 seconds
+------------------------------------------------------
+05-04 10:32
+iteration, year: 2000, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.47675e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 37.30669116973877 seconds
+------------------------------------------------------
+05-04 10:33
+iteration, year: 2001, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=4.35351e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 40.641489028930664 seconds
+------------------------------------------------------
+05-04 10:34
+iteration, year: 2002, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=8.94549e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 44.99199199676514 seconds
+------------------------------------------------------
+05-04 10:34
+iteration, year: 2003, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=6.18322e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 51.05132794380188 seconds
+------------------------------------------------------
+05-04 10:35
+iteration, year: 2004, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.59725e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 52.87223792076111 seconds
+------------------------------------------------------
+05-04 10:36
+iteration, year: 2005, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.38666e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 62.174421072006226 seconds
+------------------------------------------------------
+05-04 10:37
+iteration, year: 2006, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.91287e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 71.5192358493805 seconds
+------------------------------------------------------
+05-04 10:38
+iteration, year: 2007, running regression...
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=6.6668e-32): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 69.95037698745728 seconds
+------------------------------------------------------
+05-04 10:40
+iteration, year: 2008, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.06624e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 72.47595191001892 seconds
+------------------------------------------------------
+05-04 10:41
+iteration, year: 2009, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.64707e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 70.181232213974 seconds
+------------------------------------------------------
+05-04 10:42
+iteration, year: 2010, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.53914e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 73.28724479675293 seconds
+------------------------------------------------------
+05-04 10:43
+iteration, year: 2011, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.51554e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 80.92460489273071 seconds
+------------------------------------------------------
+05-04 10:45
+iteration, year: 2012, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+retConglomerate
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.56576e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 95.78735184669495 seconds
+------------------------------------------------------
+for ElasticNet_alpha0.1
+ {'alpha': 0.1, 'copy_X': True, 'fit_intercept': True, 'max_iter': None, 'normalize': 'deprecated', 'positive': False, 'random_state': 0, 'solver': 'auto', 'tol': 0.001}
+05-04 10:46
+iteration, year: 1996, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.33433e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 28.546988010406494 seconds
+------------------------------------------------------
+05-04 10:47
+iteration, year: 1997, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.55054e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 30.099946975708008 seconds
+------------------------------------------------------
+05-04 10:47
+iteration, year: 1998, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.57085e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 32.38126015663147 seconds
+------------------------------------------------------
+05-04 10:48
+iteration, year: 1999, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.65088e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 34.51910614967346 seconds
+------------------------------------------------------
+05-04 10:48
+iteration, year: 2000, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.47675e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 38.43625783920288 seconds
+------------------------------------------------------
+05-04 10:49
+iteration, year: 2001, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=4.35351e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 39.7928729057312 seconds
+------------------------------------------------------
+05-04 10:50
+iteration, year: 2002, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=8.94549e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 44.13694906234741 seconds
+------------------------------------------------------
+05-04 10:50
+iteration, year: 2003, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=6.18322e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 47.57672595977783 seconds
+------------------------------------------------------
+05-04 10:51
+iteration, year: 2004, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.59725e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 59.27164697647095 seconds
+------------------------------------------------------
+05-04 10:52
+iteration, year: 2005, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.38666e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 64.57291078567505 seconds
+------------------------------------------------------
+05-04 10:53
+iteration, year: 2006, running regression...
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.91287e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 61.829556941986084 seconds
+------------------------------------------------------
+05-04 10:54
+iteration, year: 2007, running regression...
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=6.6668e-32): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 66.6543140411377 seconds
+------------------------------------------------------
+05-04 10:55
+iteration, year: 2008, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.06624e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 67.43720507621765 seconds
+------------------------------------------------------
+05-04 10:56
+iteration, year: 2009, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.64707e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 69.55845713615417 seconds
+------------------------------------------------------
+05-04 10:58
+iteration, year: 2010, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.53914e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 72.49248719215393 seconds
+------------------------------------------------------
+05-04 10:59
+iteration, year: 2011, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.51554e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 83.02423906326294 seconds
+------------------------------------------------------
+05-04 11:00
+iteration, year: 2012, running regression...
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+retConglomerate
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.56576e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 88.48061609268188 seconds
+------------------------------------------------------
+Traceback (most recent call last):
+  File "ml_predictor.py", line 206, in <module>
+    run_regression(reg, saved_folder, "GBR_n100", option_with_feature, used_characteristics, 1996, 2012)
+NameError: name 'run_regression' is not defined
+
+
+finished loading data, used 165.74552011489868 seconds
+------------------------------------------------------
+for Lasso_alpha0.1
+ {'alpha': 0.1, 'copy_X': True, 'fit_intercept': True, 'max_iter': 1000, 'normalize': 'deprecated', 'positive': False, 'precompute': False, 'random_state': 0, 'selection': 'cyclic', 'tol': 0.0001, 'warm_start': False}
+05-04 11:18
+iteration, year: 1996, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+RDcap
+finished one iteration, used 2378.8061289787292 seconds
+------------------------------------------------------
+05-04 11:58
+iteration, year: 1997, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+finished one iteration, used 852.8994841575623 seconds
+------------------------------------------------------
+05-04 12:12
+iteration, year: 1998, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+RDcap
+finished one iteration, used 205.10043811798096 seconds
+------------------------------------------------------
+05-04 12:15
+iteration, year: 1999, running regression...
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+finished one iteration, used 58.578112840652466 seconds
+------------------------------------------------------
+05-04 12:16
+iteration, year: 2000, running regression...
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading

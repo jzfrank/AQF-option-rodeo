@@ -83,9 +83,9 @@ def backtesting(test_data, regressor, used_characteristics):
     return dates, gain_from_hedges
 
 
-def run_regression_and_save(reg, model_name, option_with_feature, used_characteristics, year):
+def run_regression_and_save(reg, saved_folder, model_name, option_with_feature, used_characteristics, year):
     '''
-    run regression and save model to "models/{model_name}{year}.pkl" file
+    run regression and save model to f"{saved_folder}/{model_name}{year}.pkl" file
     Note: use joblib.dump(reg, filename) to save model
           use joblib.load(filename) to load model
     '''
@@ -134,8 +134,8 @@ def run_regression_and_save(reg, model_name, option_with_feature, used_character
     # regression    
     reg.fit(X_train[used_characteristics], y_train)
     # save model
-    joblib.dump(reg, f"models/{model_name}_{year}.pkl")
-    with open(file=f"models/{model_name}_{year}.txt") as f:
+    joblib.dump(reg, f"{saved_folder}/{model_name}_{year}.pkl")
+    with open(f"{saved_folder}/{model_name}_{year}.txt", "w") as f:
         f.write(str(used_characteristics))
 
     # y_pred = reg.predict(X_test[used_characteristics])
@@ -154,20 +154,21 @@ def run_regression_and_save(reg, model_name, option_with_feature, used_character
     print("------------------------------------------------------")
 
 
-def run_regression_from_to(reg, model_name, option_with_feature, used_characteristics, start_year=1996, end_year=2012):
+def run_regression_from_to(reg, saved_folder, model_name, option_with_feature, used_characteristics, start_year=1996, end_year=2012):
     '''
     run regression from start_year to end_year (inclusive)
     Note: [year, year + 7] is one training-validation-test iteration
     '''
     print(f"for {model_name}\n {reg.get_params()}")
     for year in range(start_year, end_year + 1):
-        run_regression_and_save(reg, model_name, option_with_feature, used_characteristics, year)
+        run_regression_and_save(reg, saved_folder, model_name, option_with_feature, used_characteristics, year)
 
 
 if __name__ == "__main__":
     start = time.time()
     # load data 
-    option_with_feature = pd.read_csv(os.path.join(DATAROOT, "all_characteristics.csv"))
+    data_file = "all_characteristics"
+    option_with_feature = pd.read_csv(os.path.join(DATAROOT, f"{data_file}.csv"))
     option_with_feature = option_with_feature[~option_with_feature.option_ret.isna()]
     option_with_feature["date"] = pd.to_datetime(option_with_feature["date"])
     option_with_feature.replace([np.inf, -np.inf], np.nan, inplace=True)
@@ -178,18 +179,22 @@ if __name__ == "__main__":
     #   Try using .loc[row_indexer,col_indexer] = value instead"
     pd.options.mode.chained_assignment = None 
 
+    saved_folder = f"./models_{data_file}"
+    if not os.path.exists(saved_folder):
+        os.mkdir(saved_folder)
+
     # # ----- Linear models ------
-    # Lasso
-    best_alpha = 0.1  # empirically result from validation
-    reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
-    run_regression_from_to(reg, "Lasso_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
-    # Ridge
-    best_alpha = 0.1  # empirically result from validation
-    reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
-    run_regression_from_to(reg, "Ridge_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
-    # Elastic
-    elastic_reg = ElasticNet(alpha=0.1)
-    run_regression_from_to(reg, "ElasticNet_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    # # Lasso
+    # best_alpha = 0.1  # empirically result from validation
+    # reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
+    # run_regression_from_to(reg, saved_folder, "Lasso_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    # # Ridge
+    # best_alpha = 0.1  # empirically result from validation
+    # reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
+    # run_regression_from_to(reg, saved_folder, "Ridge_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    # # Elastic
+    # elastic_reg = ElasticNet(alpha=0.1)
+    # run_regression_from_to(reg, saved_folder, "ElasticNet_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
 
     # ----- Nonlinear models ----- 
     # GBR
@@ -198,10 +203,10 @@ if __name__ == "__main__":
         loss='huber',
         verbose=1
     )
-    run_regression(reg, "GBR_n100")
+    run_regression_from_to(reg, saved_folder, "GBR_n100", option_with_feature, used_characteristics, 1996, 2012)
     # RF
     reg = RandomForestRegressor(
         n_estimators=100,
         max_depth=3, random_state=0, 
         verbose=1)
-    run_regression(reg, "RF_n100", 1996, 2012)
+    run_regression_from_to(reg, saved_folder, "RF_n100", option_with_feature, used_characteristics, 1996, 2012)
