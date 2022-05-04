@@ -137,6 +137,6 @@ dmypy.json
 
 # model
 *.pkl
-
+*models*/
 # archives
 archives/

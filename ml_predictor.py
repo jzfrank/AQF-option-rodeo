@@ -31,9 +31,11 @@ def get_data_between(option_with_feature, start_year, end_year):
     '''
     begin_date = dt.datetime.strptime(f"{start_year}-01-01", "%Y-%m-%d")
     end_date = dt.datetime.strptime(f"{end_year}-12-31", "%Y-%m-%d")
+    print("option_with_feature.date.between(begin_date, end_date).shape:", 
+          option_with_feature.date.between(begin_date, end_date).shape)
     return option_with_feature[
         option_with_feature.date.between(begin_date, end_date)
-    ]
+    ].copy(deep=True)
 
 
 def train_validation_test_split(option_with_feature, year):
@@ -44,7 +46,8 @@ def train_validation_test_split(option_with_feature, year):
     validation: [year + 5. year + 6]
     test: [year + 7, year + 7]
     '''
-    training_data = get_data_between(option_with_feature, year, year + 4)
+    training_data = get_data_between(option_with_feature, year, year + 6)
+    # since we are not using validation for resources constraint, need to extend trainig data period
     validation_data = get_data_between(option_with_feature, year + 5, year + 6)
     test_data = get_data_between(option_with_feature, year + 7, year + 7)
     return training_data, validation_data, test_data 
@@ -159,7 +162,7 @@ def run_regression_from_to(reg, saved_folder, model_name, option_with_feature, u
     run regression from start_year to end_year (inclusive)
     Note: [year, year + 7] is one training-validation-test iteration
     '''
-    print(f"for {model_name}\n {reg.get_params()}")
+    print(f"for {model_name}\n")
     for year in range(start_year, end_year + 1):
         run_regression_and_save(reg, saved_folder, model_name, option_with_feature, used_characteristics, year)
 
@@ -169,6 +172,8 @@ if __name__ == "__main__":
     # load data 
     data_file = "all_characteristics"
     option_with_feature = pd.read_csv(os.path.join(DATAROOT, f"{data_file}.csv"))
+    OUT_LIER = 2000
+    option_with_feature = option_with_feature[option_with_feature.option_ret.abs() <= OUT_LIER]
     option_with_feature = option_with_feature[~option_with_feature.option_ret.isna()]
     option_with_feature["date"] = pd.to_datetime(option_with_feature["date"])
     option_with_feature.replace([np.inf, -np.inf], np.nan, inplace=True)
@@ -183,23 +188,24 @@ if __name__ == "__main__":
     if not os.path.exists(saved_folder):
         os.mkdir(saved_folder)
 
-    # # ----- Linear models ------
-    # # Lasso
-    # best_alpha = 0.1  # empirically result from validation
-    # reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
-    # run_regression_from_to(reg, saved_folder, "Lasso_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
-    # # Ridge
-    # best_alpha = 0.1  # empirically result from validation
-    # reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
-    # run_regression_from_to(reg, saved_folder, "Ridge_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
-    # # Elastic
-    # elastic_reg = ElasticNet(alpha=0.1)
-    # run_regression_from_to(reg, saved_folder, "ElasticNet_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    # ----- Linear models ------
+    # Lasso
+    best_alpha = 0.1  # empirically result from validation
+    reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
+    run_regression_from_to(reg, saved_folder, "Lasso_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    # Ridge
+    best_alpha = 0.1  # empirically result from validation
+    reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
+    run_regression_from_to(reg, saved_folder, "Ridge_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    # Elastic
+    elastic_reg = ElasticNet(alpha=0.1)
+    run_regression_from_to(reg, saved_folder, "ElasticNet_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
 
     # ----- Nonlinear models ----- 
     # GBR
     reg = GradientBoostingRegressor(
-        n_estimators=100, random_state=0,
+        n_estimators=100, 
+        random_state=0,
         loss='huber',
         verbose=1
     )
@@ -207,6 +213,7 @@ if __name__ == "__main__":
     # RF
     reg = RandomForestRegressor(
         n_estimators=100,
-        max_depth=3, random_state=0, 
+        max_depth=3, 
+        random_state=0, 
         verbose=1)
     run_regression_from_to(reg, saved_folder, "RF_n100", option_with_feature, used_characteristics, 1996, 2012)
