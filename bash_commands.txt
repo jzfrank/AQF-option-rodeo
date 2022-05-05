@@ -1,2 +1,0 @@
-#upload files to ethz euler 
-scp -r Desktop/AQF-option-rodeo/data zhajin@euler.ethz.ch:/cluster/scratch/zhajin/
