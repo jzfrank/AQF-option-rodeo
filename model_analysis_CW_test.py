@@ -35,22 +35,14 @@ if __name__ == '__main__':
     option_with_feature = option_with_feature[~option_with_feature.option_ret.isna()]
     option_with_feature["date"] = pd.to_datetime(option_with_feature["date"])
     option_with_feature.replace([np.inf, -np.inf], np.nan, inplace=True)
-    # merge with weights
-    weight_info = pd.read_csv(Path(DATAROOT, "weight_info.csv"))
-    weight_info = weight_info[["date", "optionid", "dollar_open_interest"]]
-    weight_info["date"] = pd.to_datetime(weight_info["date"])
-    weight_info = weight_info.rename(columns={"dollar_open_interest": "open_interest"})
-    print("option_with_feature.shape before merging:", option_with_feature.shape)
-    option_with_feature = pd.merge(option_with_feature, weight_info, on=["date", "optionid"], how="inner")
-    print("option_with_feature.shape after merging:", option_with_feature.shape)
     print(f"finished loading data, used {time.time() - start} seconds")
     print("------------------------------------------------------")
 
+    CW_scores = []
     for year in range(1996, 2012 + 1):
         # load model 
         model_root = "./models_all_characteristics"
         model_name = "Ridge_alpha0.1"
-        # year = 1996
         model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
         print(model.get_params())
         with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
@@ -65,10 +57,19 @@ if __name__ == '__main__':
         training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
         test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
 
-        dates, gain_from_hedges = backtesting(test_data, model, used_characteristics)
-        summary_df = pd.DataFrame({
-            "dates": dates,
-            "gain_from_hedges": gain_from_hedges
+        # compute CW score
+        true_pred_return = pd.DataFrame({
+            'optionid': test_data.optionid, 
+            'time': test_data.date, 
+            'true_return': test_data.option_ret, 
+            'pred_return': model.predict(test_data[used_characteristics])
         })
-        print(summary_df)
-        summary_df.to_csv(Path("./analysis_results", f"backtest_{model_name}_{year}.csv"))
+        CW_score = CW_test(true_pred_return)
+        CW_scores.append(CW_score)
+        print(f"CW_score for {model_name} in {year+8}", CW_score)
+    summary_df = pd.DataFrame({
+        "year": list(map(lambda x: x + 7, range(1996, 2012 + 1))),
+        "CW_score": CW_scores
+    })
+    print(summary_df)
+    summary_df.to_csv(Path("analysis_results", f"CW_score_{model_name}_year.csv"))

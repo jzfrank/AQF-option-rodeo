@@ -16,7 +16,7 @@ def get_data_between(option_with_feature, start_year, end_year):
     '''
     begin_date = dt.datetime.strptime(f"{start_year}-01-01", "%Y-%m-%d")
     end_date = dt.datetime.strptime(f"{end_year}-12-31", "%Y-%m-%d")
-    print("option_with_feature.date.between(begin_date, end_date).sum():", 
+    print(f"option_with_feature.date.between({begin_date}, {end_date}).sum():", 
           option_with_feature.date.between(begin_date, end_date).sum())
     return option_with_feature[
         option_with_feature.date.between(begin_date, end_date)

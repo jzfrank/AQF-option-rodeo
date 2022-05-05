@@ -20,6 +20,9 @@ def R_squared_OSXS(true_return, pred_return):
 
 def CW_test(true_pred_return):
     '''
+    CW test answers this question: 
+        is my model doing better than naive benchmark? 
+
     true_pred_return should be a data frame
     with columns = ['optionid', 'time', 'true_return', 'pred_return']
 
@@ -44,7 +47,10 @@ def CW_test(true_pred_return):
 
 def DM_test(true_pred_1vs2_return):
     '''
-    perform DM test, postive result means
+    DM test answers this question:
+        is model 1 doing better than model 2?
+    perform DM test, postive result means model 2 outperforms model 1 
+
     construction example:
     true_pred_1vs2_return = pd.DataFrame(
     {
