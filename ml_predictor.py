@@ -21,7 +21,7 @@ from sklearn.datasets import make_regression
 import matplotlib.pyplot as plt
 
 from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
-from consts import DATAROOT, used_characteristics
+from consts import DATAROOT, used_characteristics, used_characteristics_nonsparse
 from ml_helper_functions import get_data_between, train_validation_test_split
 
 
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     #   Try using .loc[row_indexer,col_indexer] = value instead"
     pd.options.mode.chained_assignment = None 
 
-    saved_folder = f"./models_{data_file}"
+    saved_folder = "./models_nonsparse"
     if not os.path.exists(saved_folder):
         os.mkdir(saved_folder)
 
@@ -131,14 +131,14 @@ if __name__ == "__main__":
     # Lasso
     best_alpha = 0.1  # empirically result from validation
     reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
-    run_regression_from_to(reg, saved_folder, "Lasso_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    run_regression_from_to(reg, saved_folder, "Lasso_alpha0.1", option_with_feature, used_characteristics_nonsparse, 1996, 2012)
     # Ridge
     best_alpha = 0.1  # empirically result from validation
     reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
-    run_regression_from_to(reg, saved_folder, "Ridge_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    run_regression_from_to(reg, saved_folder, "Ridge_alpha0.1", option_with_feature, used_characteristics_nonsparse, 1996, 2012)
     # Elastic
     elastic_reg = ElasticNet(alpha=0.1)
-    run_regression_from_to(reg, saved_folder, "ElasticNet_alpha0.1", option_with_feature, used_characteristics, 1996, 2012)
+    run_regression_from_to(reg, saved_folder, "ElasticNet_alpha0.1", option_with_feature, used_characteristics_nonsparse, 1996, 2012)
 
     # ----- Nonlinear models ----- 
     # GBR
@@ -148,11 +148,11 @@ if __name__ == "__main__":
         loss='huber',
         verbose=1
     )
-    run_regression_from_to(reg, saved_folder, "GBR_n100", option_with_feature, used_characteristics, 1996, 2012)
+    run_regression_from_to(reg, saved_folder, "GBR_n100", option_with_feature, used_characteristics_nonsparse, 1996, 2012)
     # RF
     reg = RandomForestRegressor(
         n_estimators=100,
         max_depth=3, 
         random_state=0, 
         verbose=1)
-    run_regression_from_to(reg, saved_folder, "RF_n100", option_with_feature, used_characteristics, 1996, 2012)
+    run_regression_from_to(reg, saved_folder, "RF_n100", option_with_feature, used_characteristics_nonsparse, 1996, 2012)

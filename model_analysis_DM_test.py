@@ -55,10 +55,6 @@ if __name__ == '__main__':
     results = []
     for year in range(1996, 2012 + 1):
         training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
-        imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-        imp.fit(training_data[used_characteristics])
-        training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
-        test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
 
         result = dict()
         for i in range(len(model_names)):
@@ -69,6 +65,11 @@ if __name__ == '__main__':
 
                 assert set(used_characteristics1) == set(used_characteristics2)
                 used_characteristics = used_characteristics1
+
+                imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+                imp.fit(training_data[used_characteristics])
+                training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
+                test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
 
                 true_pred_1vs2_return = pd.DataFrame(
                     {
