@@ -144,3 +144,6 @@ archives/
 
 #icloud files
 *.icloud
+
+#tmp files
+tmp*

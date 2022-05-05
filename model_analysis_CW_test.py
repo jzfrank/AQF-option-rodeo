@@ -39,43 +39,43 @@ if __name__ == '__main__':
     print("------------------------------------------------------")
 
     def run_CW_test_and_save(model_root, model_name):
-	    CW_scores = []
-	    for year in range(1996, 2012 + 1):
-	        # load model 
-	        model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
-	        print(model.get_params())
-	        with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
-	            used_characteristics = list(
-	                map(lambda x: x[1:-1], 
-	                    fh.readline()[1:-1].split(", "))
-	            )
+        CW_scores = []
+        for year in range(1996, 2012 + 1):
+            # load model 
+            model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
+            print(model.get_params())
+            with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
+                used_characteristics = list(
+                    map(lambda x: x[1:-1], 
+                        fh.readline()[1:-1].split(", "))
+                )
 
-	        training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
-	        imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-	        imp.fit(training_data[used_characteristics])
-	        training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
-	        test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
+            training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
+            imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+            imp.fit(training_data[used_characteristics])
+            training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
+            test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
 
-	        # compute CW score
-	        true_pred_return = pd.DataFrame({
-	            'optionid': test_data.optionid, 
-	            'time': test_data.date, 
-	            'true_return': test_data.option_ret, 
-	            'pred_return': model.predict(test_data[used_characteristics])
-	        })
-	        CW_score = CW_test(true_pred_return)
-	        CW_scores.append(CW_score)
-	        print(f"CW_score for {model_name} in {year+8}", CW_score)
-	    summary_df = pd.DataFrame({
-	        "year": list(map(lambda x: x + 7, range(1996, 2012 + 1))),
-	        "CW_score": CW_scores
-	    })
-	    print(summary_df)
-	    summary_df.to_csv(Path("analysis_results", f"CW_score_{model_name}_year.csv"))
-	    print("saved to:", Path("analysis_results", f"CW_score_{model_name}_year.csv"))
+            # compute CW score
+            true_pred_return = pd.DataFrame({
+                'optionid': test_data.optionid, 
+                'time': test_data.date, 
+                'true_return': test_data.option_ret, 
+                'pred_return': model.predict(test_data[used_characteristics])
+            })
+            CW_score = CW_test(true_pred_return)
+            CW_scores.append(CW_score)
+            print(f"CW_score for {model_name} in {year+8}", CW_score)
+        summary_df = pd.DataFrame({
+            "year": list(map(lambda x: x + 7, range(1996, 2012 + 1))),
+            "CW_score": CW_scores
+        })
+        print(summary_df)
+        summary_df.to_csv(Path("analysis_results", f"CW_score_{model_name}_year.csv"))
+        print("saved to:", Path("analysis_results", f"CW_score_{model_name}_year.csv"))
 
-	model_root = "./models_all_characteristics"
-	model_names = ["Lasso_alpha0.1", "Ridge_alpha0.1", "ElasticNet_alpha0.1", 
-					"GBR_n100", "RF_n100"]
-	for model_name in model_names:
-		run_CW_test_and_save(model_root, model_name)
+    model_root = "./models_all_characteristics"
+    model_names = ["Lasso_alpha0.1", "Ridge_alpha0.1", "ElasticNet_alpha0.1", 
+                   "GBR_n100", "RF_n100"]
+    for model_name in model_names:
+        run_CW_test_and_save(model_root, model_name)
