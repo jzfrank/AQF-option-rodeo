@@ -1,0 +1,952 @@
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+finished one iteration, used 103.4707498550415 seconds
+------------------------------------------------------
+05-04 21:13
+iteration, year: 2001, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 165.2611231803894 seconds
+------------------------------------------------------
+05-04 21:15
+iteration, year: 2002, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 155.31444716453552 seconds
+------------------------------------------------------
+05-04 21:18
+iteration, year: 2003, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 177.66632914543152 seconds
+------------------------------------------------------
+05-04 21:21
+iteration, year: 2004, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+finished one iteration, used 163.89590501785278 seconds
+------------------------------------------------------
+05-04 21:24
+iteration, year: 2005, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 170.57839703559875 seconds
+------------------------------------------------------
+05-04 21:27
+iteration, year: 2006, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 236.23155689239502 seconds
+------------------------------------------------------
+05-04 21:30
+iteration, year: 2007, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+finished one iteration, used 281.0220983028412 seconds
+------------------------------------------------------
+05-04 21:35
+iteration, year: 2008, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 271.93135619163513 seconds
+------------------------------------------------------
+05-04 21:40
+iteration, year: 2009, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+finished one iteration, used 322.2508330345154 seconds
+------------------------------------------------------
+05-04 21:45
+iteration, year: 2010, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+finished one iteration, used 304.47782707214355 seconds
+------------------------------------------------------
+05-04 21:50
+iteration, year: 2011, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+finished one iteration, used 350.1474847793579 seconds
+------------------------------------------------------
+05-04 21:56
+iteration, year: 2012, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+retConglomerate
+finished one iteration, used 6427.046414852142 seconds
+------------------------------------------------------
+for Ridge_alpha0.1
+
+05-04 23:43
+iteration, year: 1996, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.33397e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 1156.6906497478485 seconds
+------------------------------------------------------
+05-05 00:02
+iteration, year: 1997, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.45909e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 156.8474519252777 seconds
+------------------------------------------------------
+05-05 00:05
+iteration, year: 1998, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.44524e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 143.0516059398651 seconds
+------------------------------------------------------
+05-05 00:07
+iteration, year: 1999, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=1.83511e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 151.25588607788086 seconds
+------------------------------------------------------
+05-05 00:10
+iteration, year: 2000, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=7.44556e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 173.4800260066986 seconds
+------------------------------------------------------
+05-05 00:13
+iteration, year: 2001, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=5.9521e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 205.02397203445435 seconds
+------------------------------------------------------
+05-05 00:16
+iteration, year: 2002, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.57106e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 221.93822312355042 seconds
+------------------------------------------------------
+05-05 00:20
+iteration, year: 2003, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.35282e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 245.19897389411926 seconds
+------------------------------------------------------
+05-05 00:24
+iteration, year: 2004, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.76835e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 275.70995688438416 seconds
+------------------------------------------------------
+05-05 00:29
+iteration, year: 2005, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=6.20589e-32): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 239.7685670852661 seconds
+------------------------------------------------------
+05-05 00:33
+iteration, year: 2006, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.03873e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 351.5032467842102 seconds
+------------------------------------------------------
+05-05 00:39
+iteration, year: 2007, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.61727e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 558.8782231807709 seconds
+------------------------------------------------------
+05-05 00:48
+iteration, year: 2008, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.51014e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 606.9366939067841 seconds
+------------------------------------------------------
+05-05 00:58
+iteration, year: 2009, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.49285e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 776.426522731781 seconds
+------------------------------------------------------
+05-05 01:11
+iteration, year: 2010, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.4748e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 770.0261330604553 seconds
+------------------------------------------------------
+05-05 01:24
+iteration, year: 2011, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.41731e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 844.845116853714 seconds
+------------------------------------------------------
+05-05 01:38
+iteration, year: 2012, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+retConglomerate
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=1.25841e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 2635.3650670051575 seconds
+------------------------------------------------------
+for ElasticNet_alpha0.1
+
+05-05 02:22
+iteration, year: 1996, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.33397e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 139.28584790229797 seconds
+------------------------------------------------------
+05-05 02:24
+iteration, year: 1997, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.45909e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 124.36030912399292 seconds
+------------------------------------------------------
+05-05 02:26
+iteration, year: 1998, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+RDcap
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.44524e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 138.87807297706604 seconds
+------------------------------------------------------
+05-05 02:29
+iteration, year: 1999, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=1.83511e-30): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 211.75792789459229 seconds
+------------------------------------------------------
+05-05 02:32
+iteration, year: 2000, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+ChNAnalyst
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=7.44556e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 180.6697142124176 seconds
+------------------------------------------------------
+05-05 02:35
+iteration, year: 2001, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=5.9521e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 335.87607312202454 seconds
+------------------------------------------------------
+05-05 02:41
+iteration, year: 2002, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.57106e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 523.1708960533142 seconds
+------------------------------------------------------
+05-05 02:50
+iteration, year: 2003, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.35282e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 538.6795468330383 seconds
+------------------------------------------------------
+05-05 02:59
+iteration, year: 2004, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.76835e-31): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 563.1195909976959 seconds
+------------------------------------------------------
+05-05 03:08
+iteration, year: 2005, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=6.20589e-32): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 1682.3845391273499 seconds
+------------------------------------------------------
+05-05 03:36
+iteration, year: 2006, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=3.03873e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 330.35532808303833 seconds
+------------------------------------------------------
+05-05 03:41
+iteration, year: 2007, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.61727e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 279.1199760437012 seconds
+------------------------------------------------------
+05-05 03:46
+iteration, year: 2008, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.51014e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 2152.0485701560974 seconds
+------------------------------------------------------
+05-05 04:22
+iteration, year: 2009, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.49285e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 294.3956069946289 seconds
+------------------------------------------------------
+05-05 04:27
+iteration, year: 2010, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.4748e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 1234.4235949516296 seconds
+------------------------------------------------------
+05-05 04:48
+iteration, year: 2011, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=2.41731e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 358.7554931640625 seconds
+------------------------------------------------------
+05-05 04:54
+iteration, year: 2012, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+Activism1
+Activism2
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+CredRatDG
+Governance
+ProbInformedTrading
+Activism1
+Activism2
+ChNAnalyst
+CredRatDG
+Governance
+Mom6mJunk
+ProbInformedTrading
+retConglomerate
+/Users/zhangjin/anaconda3/envs/aqf/lib/python3.8/site-packages/sklearn/linear_model/_ridge.py:157: LinAlgWarning: Ill-conditioned matrix (rcond=1.25841e-33): result may not be accurate.
+  return linalg.solve(A, Xy, sym_pos=True, overwrite_a=True).T
+finished one iteration, used 319.2308783531189 seconds
+------------------------------------------------------
+for GBR_n100
+
+05-05 04:59
+iteration, year: 1996, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+RDcap
+      Iter       Train Loss   Remaining Time
+         1           0.1999           31.84m
+         2           0.1986           31.43m
+         3           0.1976           30.45m
+         4           0.1966           29.61m
+         5           0.1955           28.90m
+         6           0.1947           28.40m
+         7           0.1941           27.90m
+         8           0.1936           27.45m
+         9           0.1932           27.04m
+        10           0.1927           26.68m
+        20           0.1894           23.45m
+        30           0.1878           20.70m
+        40           0.1863           17.86m
+        50           0.1857           15.08m
+        60           0.1847           39.78m
+        70           0.1839           27.19m
+        80           0.1832           16.56m
+        90           0.1824            7.67m
+       100           0.1818            0.00s
+finished one iteration, used 4399.087570905685 seconds
+------------------------------------------------------
+05-05 06:12
+iteration, year: 1997, running regression...
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+option_with_feature.date.between(begin_date, end_date).shape: (3430310,)
+ChNAnalyst
+RDcap
+ChNAnalyst
+RDcap
+ChNAnalyst
+ProbInformedTrading
+      Iter       Train Loss   Remaining Time
+         1           0.1471           34.08m
+         2           0.1462           33.12m
+         3           0.1453           32.05m
+         4           0.1446           31.21m
+         5           0.1438           30.62m
+         6           0.1430           30.13m
+         7           0.1423           29.68m
+         8           0.1418           29.21m
+         9           0.1415           28.71m
+        10           0.1410           28.25m
+        20           0.1384           25.16m
+        30           0.1373           21.98m
+        40           0.1366           18.88m
+        50           0.1358           28.94m
+        60           0.1350           40.15m
+        70           0.1346           27.13m
+        80           0.1340           16.70m
+        90           0.1335            7.76m
+       100           0.1331            0.00s
+finished one iteration, used 4435.353222131729 seconds
+------------------------------------------------------
