@@ -141,3 +141,6 @@ dmypy.json
 # archives
 archives/
 *.zip
+
+#icloud files
+*.icloud
