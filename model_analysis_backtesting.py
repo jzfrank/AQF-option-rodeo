@@ -46,29 +46,36 @@ if __name__ == '__main__':
     print(f"finished loading data, used {time.time() - start} seconds")
     print("------------------------------------------------------")
 
-    for year in range(1996, 2012 + 1):
-        # load model 
-        model_root = "./models_all_characteristics"
-        model_name = "Ridge_alpha0.1"
-        # year = 1996
-        model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
-        print(model.get_params())
-        with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
-            used_characteristics = list(
-                map(lambda x: x[1:-1], 
-                    fh.readline()[1:-1].split(", "))
-            )
+    model_root = "./models_all_characteristics"
+    model_name = "Ridge_alpha0.1"
 
-        training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
-        imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-        imp.fit(training_data[used_characteristics])
-        training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
-        test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
+    def run_backtest_and_save(model_root, model_name):
+	    for year in range(1996, 2012 + 1):
+	        # load model 
+	        model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
+	        print(model.get_params())
+	        with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
+	            used_characteristics = list(
+	                map(lambda x: x[1:-1], 
+	                    fh.readline()[1:-1].split(", "))
+	            )
 
-        dates, gain_from_hedges = backtesting(test_data, model, used_characteristics)
-        summary_df = pd.DataFrame({
-            "dates": dates,
-            "gain_from_hedges": gain_from_hedges
-        })
-        print(summary_df)
-        summary_df.to_csv(Path("./analysis_results", f"backtest_{model_name}_{year}.csv"))
+	        training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
+	        imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+	        imp.fit(training_data[used_characteristics])
+	        training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
+	        test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
+
+	        dates, gain_from_hedges = backtesting(test_data, model, used_characteristics)
+	        summary_df = pd.DataFrame({
+	            "dates": dates,
+	            "gain_from_hedges": gain_from_hedges
+	        })
+	        print(summary_df)
+	        summary_df.to_csv(Path("./analysis_results", f"backtest_{model_name}_{year}.csv"))
+
+	model_root = "./models_all_characteristics"
+	model_names = ["Lasso_alpha0.1", "Ridge_alpha0.1", "ElasticNet_alpha0.1", 
+					"GBR_n100", "RF_n100"]
+	for model_name in model_names:
+		run_backtest_and_save(model_root, model_name)

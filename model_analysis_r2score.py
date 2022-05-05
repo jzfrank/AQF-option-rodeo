@@ -84,37 +84,42 @@ if __name__ == "__main__":
     option_with_feature.replace([np.inf, -np.inf], np.nan, inplace=True)
     print(f"finished loading data, used {time.time() - start} seconds")
     print("------------------------------------------------------")
-    results = []
-    for year in range(1996, 2012 + 1):
-        print("year:", year)
-        # load model 
-        model_root = "./models_all_characteristics"
-        model_name = "Ridge_alpha0.1"
-        # year = 1996
-        model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
-        print(model)
-        with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
-            used_characteristics = list(
-                map(lambda x: x[1:-1], 
-                    fh.readline()[1:-1].split(", "))
+
+    def compute_r2_and_save(model_root, model_name):
+        results = []
+        for year in range(1996, 2012 + 1):
+            print("year:", year)
+            # load model 
+            model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
+            print(model)
+            with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
+                used_characteristics = list(
+                    map(lambda x: x[1:-1], 
+                        fh.readline()[1:-1].split(", "))
+                )
+
+            result = report_r2_score_and_OS(
+                model, option_with_feature, 
+                used_characteristics, year
             )
+            results.append(result)
+            print(result)
+        print(results)
+        summary = dict()
+        summary['test_year'] = list(map(lambda x: x + 7, range(1996, 2012 + 1)))
+        for result in results:
+            for put_or_call, scores in result.items():
+                for score_name, score_value in scores.items():
+                    if summary.get(put_or_call + score_name, -1) == -1:
+                        summary[put_or_call + score_name] = []
+                    summary[put_or_call + score_name].append(score_value)
 
-        result = report_r2_score_and_OS(
-            model, option_with_feature, 
-            used_characteristics, year
-        )
-        results.append(result)
-        print(result)
-    print(results)
-    summary = dict()
-    summary['test_year'] = list(map(lambda x: x + 7, range(1996, 2012 + 1)))
-    for result in results:
-        for put_or_call, scores in result.items():
-            for score_name, score_value in scores.items():
-                if summary.get(put_or_call + score_name, -1) == -1:
-                    summary[put_or_call + score_name] = []
-                summary[put_or_call + score_name].append(score_value)
+        summary_df = pd.DataFrame(summary)
+        print(summary_df)
+        summary_df.to_csv(Path("analysis_results", f"{model_name}_r2.csv"))
 
-    summary_df = pd.DataFrame(summary)
-    print(summary_df)
-    summary_df.to_csv(Path("analysis_results", f"{model_name}_r2.csv"))
+    model_root = "./models_all_characteristics"
+    model_names = ["Lasso_alpha0.1", "Ridge_alpha0.1", "ElasticNet_alpha0.1", 
+                   "GBR_n100", "RF_n100"]
+    for model_name in model_names:
+        compute_r2_and_save(model_root, model_name)
