@@ -126,36 +126,33 @@ if __name__ == "__main__":
         "all": ["./models_all_characteristics", used_characteristics_all],
         "nonsparse": ["./models_nonsparse", used_characteristics_nonsparse]
     }
-    saved_folder, used_characteristics_to_train_model = choices_to_train_model["all"]
+    saved_folder, used_characteristics_to_train_model = choices_to_train_model["nonsparse"]
     # saved_folder = "./models_all_characteristics"
     # used_characteristics_to_train_model = used_characteristics
     if not os.path.exists(saved_folder):
         os.mkdir(saved_folder)
 
-    start_year = 2013 
+    start_year = 1996 
     end_year = 2013 
     # ----- Linear models ------
-    # Lasso
-    best_alpha = 0.1  # empirically result from validation
-    reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
-    run_regression_from_to(reg, saved_folder, "Lasso_alpha0.1", option_with_feature, used_characteristics_to_train_model, start_year, end_year)
-    # Ridge
-    best_alpha = 0.1  # empirically result from validation
-    reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
-    run_regression_from_to(reg, saved_folder, "Ridge_alpha0.1", option_with_feature, used_characteristics_to_train_model, start_year, end_year)
-    # Elastic
-    elastic_reg = ElasticNet(alpha=0.1)
-    run_regression_from_to(reg, saved_folder, "ElasticNet_alpha0.1", option_with_feature, used_characteristics_to_train_model, start_year, end_year)
+    # # Lasso
+    # best_alpha = 0.1  # empirically result from validation
+    # reg = linear_model.Lasso(random_state=0, alpha=best_alpha)
+    # run_regression_from_to(reg, saved_folder, "Lasso_alpha0.1", option_with_feature, used_characteristics_to_train_model, start_year, end_year)
+    # # Ridge
+    # best_alpha = 0.1  # empirically result from validation
+    # reg = linear_model.Ridge(random_state=0, alpha=best_alpha)
+    # run_regression_from_to(reg, saved_folder, "Ridge_alpha0.1", option_with_feature, used_characteristics_to_train_model, start_year, end_year)
 
     # ----- Nonlinear models ----- 
     # GBR
-    reg = GradientBoostingRegressor(
-        n_estimators=100, 
-        random_state=0,
-        loss='huber',
-        verbose=1
-    )
-    run_regression_from_to(reg, saved_folder, "GBR_n100", option_with_feature, used_characteristics_to_train_model, start_year, end_year)
+    # reg = GradientBoostingRegressor(
+    #     n_estimators=100, 
+    #     random_state=0,
+    #     loss='huber',
+    #     verbose=1
+    # )
+    # run_regression_from_to(reg, saved_folder, "GBR_n100", option_with_feature, used_characteristics_to_train_model, start_year, end_year)
     # RF
     reg = RandomForestRegressor(
         n_estimators=100,
