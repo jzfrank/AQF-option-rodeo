@@ -8,6 +8,8 @@ The current result is not very inspiring. This is probably due to time constrain
 
 Our project has the following structure: 
 
+(Some folders may be empty in the repository. You should create them manually after cloning the project.)
+
 - **data**: stores the data file used or generated. It includes option return data, stock data, characteristics data, and some linking files. 
 
 - **reference_paper**: stores the paper we used as reference. 
