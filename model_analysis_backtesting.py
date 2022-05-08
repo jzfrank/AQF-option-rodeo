@@ -7,6 +7,8 @@ import time
 import joblib
 import datetime 
 from pathlib import Path
+import psutil
+import gc
 
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
@@ -22,7 +24,7 @@ from sklearn.datasets import make_regression
 import matplotlib.pyplot as plt
 
 from evaluation_metrics import CW_test, DM_test, R_squared_OSXS
-from consts import DATAROOT, OUTLIER, used_characteristics
+from consts import DATAROOT, OUTLIER
 from ml_helper_functions import get_data_between, train_validation_test_split, backtesting
 
 if __name__ == '__main__':
@@ -45,42 +47,47 @@ if __name__ == '__main__':
     print(f"finished loading data, used {time.time() - start} seconds")
     print("------------------------------------------------------")
 
-    model_root = "./models_all_characteristics"
-    model_name = "Ridge_alpha0.1"
-
-    def run_backtest_and_save(model_root, model_name, saved_folder="analysis_results/all_features"):
-        start_year = 2013
-        end_year = 2013
+    def run_backtest_and_save(model_root, model_names, 
+                              saved_folder="analysis_results/all_features", start_year=1996, end_year=2013):
         for year in range(start_year, end_year + 1):
-            # load model 
-            model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
-            print(model.get_params())
-            with open(Path(model_root, f"{model_name}_{year}.txt"), "r") as fh:
+            # all models use the same characteristics in the same year 
+            with open(Path(model_root, f"{model_names[0]}_{year}.txt"), "r") as fh:
                 used_characteristics = list(
                     map(lambda x: x[1:-1], 
                         fh.readline()[1:-1].split(", "))
                 )
-
+            # load data 
             training_data, validation_data, test_data = train_validation_test_split(option_with_feature, year)
             imp = SimpleImputer(missing_values=np.nan, strategy='mean')
             imp.fit(training_data[used_characteristics])
             training_data.loc[:, used_characteristics] = imp.transform(training_data[used_characteristics])
             test_data.loc[:, used_characteristics] = imp.transform(test_data[used_characteristics])
 
-            dates, gain_from_hedges = backtesting(test_data, model, used_characteristics)
-            summary_df = pd.DataFrame({
-                "dates": dates,
-                "gain_from_hedges": gain_from_hedges
-            })
-            print(summary_df)
-            summary_df.to_csv(Path(saved_folder, f"backtest_{model_name}_{year}.csv"))
+            for model_name in model_names:
+                print(model_root, model_name, saved_folder)
+                # load model 
+                model = joblib.load(Path(model_root, f"{model_name}_{year}.pkl"))
+                print(model.get_params())
 
-    model_root = "./models_all_characteristics"
-    model_names = ["Lasso_alpha0.1", "Ridge_alpha0.1", "ElasticNet_alpha0.1", 
+                dates, gain_from_hedges = backtesting(test_data, model, used_characteristics)
+                summary_df = pd.DataFrame({
+                    "dates": dates,
+                    "gain_from_hedges": gain_from_hedges
+                })
+                print(summary_df)
+                summary_df.to_csv(Path(saved_folder, f"backtest_{model_name}_{year}.csv"))
+
+            # memory management
+            print("virtual memory availability before del: ", psutil.virtual_memory().available / psutil.virtual_memory().total * 100)
+            del training_data, validation_data, test_data 
+            gc.collect()
+            print("virtual memory availability after del: ", psutil.virtual_memory().available / psutil.virtual_memory().total * 100)
+
+    model_root = "./models_nonsparse"
+    model_names = ["Lasso_alpha0.1", "Ridge_alpha0.1", 
                    "GBR_n100", "RF_n100"]
-    model_names = ["ElasticNet_alpha0.1", "GBR_n100", "RF_n100"]
-    saved_folder = "analysis_results/all_features"
+    model_names = ["GBR_n100", "RF_n100"]
+    saved_folder = "analysis_results/nonsparse_features"
     if not os.path.exists(saved_folder):
         os.mkdir(saved_folder)
-    for model_name in model_names:
-        run_backtest_and_save(model_root, model_name, saved_folder)
+    run_backtest_and_save(model_root, model_names, saved_folder, 1996, 2013)
