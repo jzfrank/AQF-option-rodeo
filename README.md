@@ -20,7 +20,7 @@ Our project has the following structure:
 
 - **analysis_plots**: Based on analysis_results, plots will be made to give a better visualization of results. 
 
-- **Code files**: 
+- ***Code files***: 
 
   - **consts.py**: stores environmental variables and used_characteristics 
   - **all_chars_generator.py**: prepares all characteristics (including defining new features, gluing csv files together) in one go. 

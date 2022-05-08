@@ -58,9 +58,9 @@ r2 = [i + barWidth for i in r1]
 r3 = [i + 2 * barWidth for i in r1]
 
 fig, ax = plt.subplots(figsize=(10, 5))
-plt.bar(r1, bars1, width = barWidth, color="purple", label="all")
-plt.bar(r2, bars2, width = barWidth, color="blue", label="call")
-plt.bar(r3, bars3, width = barWidth, color="black", label="put")
+plt.bar(r1, bars1, width = barWidth, color="green", label="all")
+plt.bar(r2, bars2, width = barWidth, color="yellow", label="call")
+plt.bar(r3, bars3, width = barWidth, color="blue", label="put")
 
 # general layout
 plt.xticks([r + barWidth for r in range(len(bars1))], 
@@ -121,9 +121,9 @@ r2 = [i + barWidth for i in r1]
 r3 = [i + 2 * barWidth for i in r1]
 
 fig, ax = plt.subplots(figsize=(10, 5))
-plt.bar(r1, bars1, width = barWidth, color="purple", label="all")
-plt.bar(r2, bars2, width = barWidth, color="blue", label="call")
-plt.bar(r3, bars3, width = barWidth, color="black", label="put")
+plt.bar(r1, bars1, width = barWidth, color="green", label="all")
+plt.bar(r2, bars2, width = barWidth, color="yellow", label="call")
+plt.bar(r3, bars3, width = barWidth, color="blue", label="put")
 
 # general layout
 plt.xticks([r + barWidth for r in range(len(bars1))], 
